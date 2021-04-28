@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block mainContainer %}
+{% block back %}
+  <a href="{{path('categorie_list')}}"
+    <button class="btn btn-success btn-xxxlg" style="margin:10px">Retour à la liste</button>
+  </a>
+{% endblock %}
+
+{% block title %}
+    <h1 style="
+  text-align:center;
+  background-color: red;
+  color: white;
+  pading: 1%;
+  margin:10px;
+  "> Ajouter une nouvelle catégorie</h1>
+{% endblock %}
+
+<div class="row">
+<div class="col-md-7 mx-auto">
+{{ form_start(form) }}
+  <div class="form-group">
+    {{ form_label (form.libelle,"Libelle")}}
+    {{form_widget(form.libelle, {'attr':{class:'form-control',"placeholder":"Libelle"}})}}
+  </div>
+
+   <div class="form-group">
+    {{ form_label (form.code,"Code")}}
+    {{form_widget (form.code, {'attr':{class:'form-control',"placeholder":"Code"}})}}
+  </div>
+
+  <div class="form-group">
+    {{ form_label (form.description,"Description")}}
+    {{form_widget (form.description, {'attr':{class:'form-control',"placeholder":"Description"}})}}
+  </div>
+
+
+  {% block button %}
+    <div class="form-group">
+    <button type="submit" class="btn btn-lg btn-primary mt-5 w-100">Enregistrer</button>
+    </div>
+  {% endblock %}
+
+  {{ form_end(form) }}
+</div>
+</div>
+{% endblock %}

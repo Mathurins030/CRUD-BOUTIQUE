@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block mainContainer %}
+
+    <h2 style="text-align: center"><a href="{{path('add_categorie')}}"<button class="btn btn-success w-50"> Ajouter une nouvelle catégorie</button></a></h2>
+
+  <h1 style="
+  text-align:center;
+  background-color: red;
+  color: white;
+  pading: 1%;
+  margin-top:20px;
+  ">
+    LISTE DES CATEGORIES
+  </h1>
+  {% if categories is empty %}
+  <h2 class='alert alert-info'>AUCUNE CATEGORIE/h2>
+  
+  {% else %}
+      <table class="table table-striped mt-5">
+         <thead>
+            <tr>
+                <th col>N°</th>
+                <th>Code</th>
+                <th>Libelle</th>
+                <th>Description</th>
+                <th colspan = "3">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        {% set value = 1 %}
+        {% for categorie in categories %}
+            <tr>
+                <td>{{ loop.index}}</td>
+                <td>{{ categorie.code }}</td>
+                <td>{{ categorie.libelle }}</td>
+                <td>{{ categorie.description }}</td>
+                <td>
+                    <a href="#"><button class="btn btn-outline-primary">Voir</button></a>
+                    <a href="{{path("update_categorie", {"id" : categorie.id})}}"><button class="btn btn-primary">Modifier</button></a>
+                    <a href="{{path('delete_categorie', {'id' : categorie.id})}}"><button class="btn btn-danger" 
+                            onclick="return confirm('Êtes-vous sûr de supprimer?');">supprimer</button></a>
+                </td>
+            </tr>
+            {% set value = value +1 %}
+            {% endfor %}
+      </table>
+      {% endif %}
+{% endblock %}

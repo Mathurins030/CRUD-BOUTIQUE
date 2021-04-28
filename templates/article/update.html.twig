@@ -1,0 +1,33 @@
+{% extends 'article/add.html.twig' %}
+
+{% block back %}<a href="{{path('articles_index')}}"
+    <button class="btn btn-success" style="margin:10px">Retour à la liste</button>
+  </a>{% endblock %}
+
+{% block title %}
+  <h1 style="
+  text-align:center;
+  background-color: red;
+  color: white;
+  pading: 1%;
+  margin-top:20px;
+  ">
+    Modifier un article
+  </h1>
+{% endblock %}
+
+{% block button %}
+  <div class="form-group">
+    <button type="submit" class="btn btn-lg btn-primary mt-5 w-100">
+      Sauvegarder
+    </button>
+  </div>
+{% endblock %}
+
+
+{% block stock %}
+ <div class="form-group">
+    {{ form_label (form.stock,"Stock")}}
+    {{form_widget(form.stock, {'attr':{class:'form-control', value:article.stock}})}}
+</div>
+{% endblock %}

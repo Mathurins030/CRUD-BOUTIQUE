@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block mainContainer %}
+
+  <h2 style="text-align:center;"><a href="{{path('add_article')}}"><button class="btn btn-success w-50">Ajouter un article</button></a></h2>
+
+  <h1 style="
+  text-align:center;
+  background-color: red;
+  color: white;
+  pading: 1%;
+  margin-top:20px;
+  ">
+    LISTE DES ARTICLES
+  </h1>
+
+  {% if articles is empty %}
+  <h2 class='alert alert-info'>Aucun article</h2>
+  
+  {% else %}
+      <table class="table table-striped mt-5">
+         <thead>
+            <tr>
+                <th>N°</th>
+                <th>Libelle</th>
+                <th>Code</th>
+                <th>Prix</th>
+                <th>Quantité</th>
+                <th>Catégorie</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for article in articles %}
+            <tr>
+                <td>{{ loop.index }}</td>
+                <td>{{ article.libelle }}</td>
+                <td>{{ article.code }}</td>
+                <td>{{ article.prix }}</td>
+                <td>{{ article.stock }}</td>
+                <td>{{ article.categorie }}
+                <td>
+                    <a href="#"><button class="btn btn-outline-primary">Voir</button></a>
+                    <a href="{{ path('update_article', {'id': article.id}) }}"><button class="btn btn-primary">Modifier</button></a>
+                    <a href="{{ path('delete_article', {'id': article.id}) }}"><button class="btn btn-danger"
+                        onclick="return confirm('Êtes-vous sûr de supprimer?');">supprimer</button></a>
+
+                </td>
+            </tr>
+            {% endfor %}
+      </table>
+      {% endif %}
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends 'vente/add.html.twig' %}
+
+{% block back %}
+  <a href="{{path('vente')}}"
+    <button class="btn btn-success btn-xxxlg" style="margin:10px">Retour à la liste</button>
+  </a>
+{% endblock %}
+
+{% block title %}
+  <h1 style="
+  text-align:center;
+  background-color: red;
+  color: white;
+  pading: 1%;
+  margin:15px
+  ">
+    Modifier une vente
+  </h1>
+{% endblock %}
+
+{% block button %}
+  <button class="btn btn-primary w-100">Sauvegarder</button>
+{% endblock %}

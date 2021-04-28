@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block mainContainer %}
+
+{% block back %}
+  <a href="{{path('vente')}}"
+    <button class="btn btn-success btn-xxxlg" style="margin:10px">Retour à la liste</button>
+  </a>
+{% endblock %}
+
+
+{% block title %}<h1 style="
+  text-align:center;
+  background-color: red;
+  color: white;
+  pading: 1%;
+  margin:10px;">
+  Ajouter une nouvelle vente
+  </h1>
+  {% endblock %}
+
+
+  <div class="row">
+    <div class="col-md-7 mx-auto">
+    {{ form_start(form) }} 
+
+        <div class="form-group">
+        {{ form_label (form.date, 'Date de la vente') }}
+        {{ form_widget (form.date, {'attr':{class:'form-control',"placeholder":"Date de vente"}}) }}
+        </div>
+
+        <div class="form-group">
+        {{ form_label(form.qte, 'Quantité de vente') }}
+        {{ form_widget(form.qte, {'attr':{class:'form-control',"placeholder":"Quantité de vente",'min':'1'}}) }}
+        </div>
+
+        <div class="form-group">
+        {{ form_label(form.article, 'Article vendu') }}
+        {{ form_widget(form.article, {'attr':{class:'form-control',"placeholder":"Article vendu"}}) }}
+        </div>
+
+        <div class="form-group">
+        {{ form_label(form.gerant, 'Vendeur') }}
+        {{ form_widget(form.gerant, {'attr':{class:'form-control',"placeholder":"Vendeur"}}) }}
+        </div>
+
+    {% block button %}
+        <div class="form-group">
+            <button class='btn btn-primary w-100'> Enregistrer</button>
+        </div>
+    {% endblock %}
+    {{ form_end(form) }}
+    </div>
+  </div>
+{% endblock %}

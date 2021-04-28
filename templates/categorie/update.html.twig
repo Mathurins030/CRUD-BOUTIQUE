@@ -1,0 +1,27 @@
+{% extends 'categorie/add.html.twig' %}
+
+{% block back %}
+  <a href="{{path('categorie_list')}}"
+    <button class="btn btn-success" style="margin:10px">Retour à la liste</button>
+  </a>
+{% endblock %}
+
+{% block title %}
+  <h1 style="
+  text-align:center;
+  background-color: red;
+  color: white;
+  pading: 1%;
+  margin:15px
+  ">
+    Modifier une catégorie
+  </h1>
+{% endblock %}
+
+{% block button %}
+  <div class="form-group">
+    <button type="submit" class="btn btn-lg btn-primary mt-5 w-100">
+      Sauvegarder
+    </button>
+  </div>
+{% endblock %}
